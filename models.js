@@ -20,7 +20,7 @@ UrlsSchema.pre('save', function(next){
     console.log(result);
     if (error) return next(error);
     self.created_at = new Date();
-    self._id = result.seq;
+    self._id = result ? result.seq : 0;
     next();
   });
 });
